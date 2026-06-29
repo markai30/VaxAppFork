@@ -11,7 +11,7 @@ function getManifest() {
         "id": "rophimnew_v2",          // Đổi hẳn ID để App xóa cache cũ
         "name": "RophimFake",
         "description": "Nguồn xem phim PhimVN2Y",
-        "version": "1.0.2",             
+        "version": "1.0.3",             
         "baseUrl": "https://phimvn2y.com/",
         "iconUrl": "https://url-icon-vuong.png",
         "isEnabled": true,
