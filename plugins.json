@@ -138,7 +138,7 @@
             "id": "rophim",
             "name": "Rổ Phim",
             "version": "1.2",
-            "scriptUrl": "https://cdn.jsdelivr.net/gh/markai30/VaxAppFork@main/rophim.js",
+            "scriptUrl": "https://raw.githack.com/markai30/VaxAppFork/main/rophim.js",
             "iconUrl": "https://phimvn2y.com/wp-content/themes/rophim-2/assets/images/icon-48x48.png"
         }
     ]
