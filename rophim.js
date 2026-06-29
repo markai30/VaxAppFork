@@ -1,5 +1,5 @@
 // =============================================================================
-// VAAPP Plugin Template - RophimFake
+// VAAPP Plugin Template - RophimFake Fixed
 // =============================================================================
 
 // =============================================================================
@@ -8,10 +8,10 @@
 
 function getManifest() {
     return JSON.stringify({
-        "id": "rophimnew_v2",          // Đổi hẳn ID để App xóa cache cũ
+        "id": "rophim_test_999",          
         "name": "RophimFake",
         "description": "Nguồn xem phim PhimVN2Y",
-        "version": "1.0.3",             
+        "version": "1.0.7",             
         "baseUrl": "https://phimvn2y.com/",
         "iconUrl": "https://url-icon-vuong.png",
         "isEnabled": true,
@@ -24,7 +24,6 @@ function getManifest() {
 
 function getHomeSections() {
     return JSON.stringify([
-        // SỬA LỖI: Điền giá trị vào trường 'path' để App có đường dẫn Fetch dữ liệu
         { slug: 'phim-le', title: 'Phim Lẻ Mới', type: 'Horizontal', path: 'phim-le' },
         { slug: 'phim-bo', title: 'Phim Bộ Mới', type: 'Horizontal', path: 'phim-bo' },
         { slug: 'phim-chieu-rap', title: 'Phim Chiếu Rạp', type: 'Horizontal', path: 'phim-chieu-rap' },
@@ -38,7 +37,7 @@ function getPrimaryCategories() {
         { name: 'Kinh Dị', slug: 'kinh-di' },
         { name: 'Viễn Tưởng', slug: 'vien-tuong' },
         { name: 'Khoa Học', slug: 'khoa-hoc' },
-        { name: 'Hoạt Hình', slug: 'hoat-hinh' }, // Đã xóa dấu cách thừa
+        { name: 'Hoạt Hình', slug: 'hoat-hinh' }, 
         { name: '18+', slug: 'phim-18' }
     ]);
 }
@@ -63,7 +62,6 @@ function getUrlSearch(keyword, filtersJson) {
 }
 
 function getUrlDetail(slug) {
-    // SỬA LỖI ĐỊNH TUYẾN: Nếu slug truyền vào đã có sẵn domain hoặc dấu gạch chéo
     if (slug.indexOf('http') === 0) return slug;
     if (slug.indexOf('/') === 0) return "https://phimvn2y.com" + slug;
     return "https://phimvn2y.com/" + slug;
@@ -85,7 +83,6 @@ function parseListResponse(html) {
         
         while ((match = regex.exec(html)) !== null) {
             var cleanThumb = match[3].replace(/&amp;/g, '&'); 
-            
             items.push({
                 id: match[2],          
                 title: match[1].trim(), 
@@ -188,7 +185,8 @@ function parseMovieDetail(html) {
 
 function parseDetailResponse(html) {
     try {
-        var activeEpRegex = /class="[^"]*item-ep[^"]*active[^"]*"[^>]*data-m3u8="([^"]+)"[^>]*data-embed="([^2]+)"/i;
+        // ĐÃ SỬA LỖI REGEX CHÍ MẠNG Ở ĐÂY: ([^2]+) -> ([^"]+)
+        var activeEpRegex = /class="[^"]*item-ep[^"]*active[^"]*"[^>]*data-m3u8="([^"]+)"[^>]*data-embed="([^"]+)"/i;
         var match = html.match(activeEpRegex);
         
         var videoUrl = "";
